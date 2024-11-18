@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frecuencia de Caracteres</title>
-     <!--insertando script para validacion de entradas-->
+    <!--insertando script para validacion de entradas-->
     <script>
         // Validación en el lado del cliente
         function validarTexto(event) {
@@ -20,6 +21,7 @@
         }
     </script>
 </head>
+
 <body>
     <h1>Frecuencia de Caracteres en una Cadena</h1>
     <form method="post" onsubmit="validarTexto(event)">
@@ -27,8 +29,8 @@
         <input type="text" id="texto" name="texto" required>
         <button type="submit">Calcular Frecuencia</button>
     </form>
-       <!--insertando codigo PHP-->
-       <?php
+    <!--insertando codigo PHP-->
+    <?php
     // Verificar si se ha enviado el formulario
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Leer la cadena de texto ingresada
@@ -40,7 +42,8 @@
             echo "<p>Por favor, ingrese únicamente texto. No se permiten números.</p>";
         } else {
             // Función para calcular la frecuencia de cada carácter
-            function calcularFrecuencia($cadena) {
+            function calcularFrecuencia($cadena)
+            {
                 $frecuencia = []; // Array para almacenar la frecuencia de cada carácter
 
                 // Convertir la cadena a un array de caracteres
@@ -73,4 +76,5 @@
     }
     ?>
 </body>
+
 </html>

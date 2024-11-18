@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serie Fibonacci</title>
 </head>
+
 <body>
     <h1>Generador de Serie Fibonacci</h1>
     <form method="post">
@@ -20,7 +22,8 @@
         $n = intval($_POST['n']); // Convertir la entrada a un entero
 
         // Función para generar la serie de Fibonacci
-        function generarFibonacci($n) {
+        function generarFibonacci($n)
+        {
             if ($n < 1) {
                 return "El número debe ser mayor o igual a 1.";
             }
@@ -54,4 +57,5 @@
     }
     ?>
 </body>
+
 </html>
