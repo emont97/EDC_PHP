@@ -27,5 +27,48 @@
         <input type="text" id="texto" name="texto" required>
         <button type="submit">Calcular Frecuencia</button>
     </form>
+       <!--insertando codigo PHP-->
+       <?php
+    // Verificar si se ha enviado el formulario
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Leer la cadena de texto ingresada
+        $texto = trim($_POST['texto']); // Eliminar espacios al inicio y al final
+
+        // Validar que no contenga números
+        if (preg_match('/\d/', $texto)) {
+            echo "<h2>Error:</h2>";
+            echo "<p>Por favor, ingrese únicamente texto. No se permiten números.</p>";
+        } else {
+            // Función para calcular la frecuencia de cada carácter
+            function calcularFrecuencia($cadena) {
+                $frecuencia = []; // Array para almacenar la frecuencia de cada carácter
+
+                // Convertir la cadena a un array de caracteres
+                $caracteres = str_split($cadena);
+
+                // Recorrer los caracteres y contar las ocurrencias
+                foreach ($caracteres as $caracter) {
+                    if (isset($frecuencia[$caracter])) {
+                        $frecuencia[$caracter]++; // Si el carácter ya existe, incrementa su frecuencia
+                    } else {
+                        $frecuencia[$caracter] = 1; // Si es la primera vez que aparece, inicializa la frecuencia
+                    }
+                }
+
+                return $frecuencia; // Retorna el array con las frecuencias
+            }
+
+            // Calcular la frecuencia de los caracteres en la cadena ingresada
+            $frecuencias = calcularFrecuencia($texto);
+
+            echo "<h2>Frecuencia de Caracteres:</h2>";
+            echo "<ul>";
+            foreach ($frecuencias as $caracter => $cantidad) {
+                echo "<li>Caracter '$caracter' aparece $cantidad veces.</li>";
+            }
+            echo "</ul>";
+        }
+    }
+    ?>
 </body>
 </html>
