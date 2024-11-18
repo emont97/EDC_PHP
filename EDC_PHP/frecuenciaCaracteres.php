@@ -64,7 +64,9 @@
             echo "<h2>Frecuencia de Caracteres:</h2>";
             echo "<ul>";
             foreach ($frecuencias as $caracter => $cantidad) {
-                echo "<li>Caracter '$caracter' aparece $cantidad veces.</li>";
+                // Pluralizar la palabra "vez"
+                $vez_o_veces = ($cantidad == 1) ? 'vez' : 'veces';
+                echo "<li>Caracter '$caracter' aparece $cantidad $vez_o_veces.</li>";
             }
             echo "</ul>";
         }
